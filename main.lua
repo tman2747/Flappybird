@@ -9,6 +9,7 @@ function love.load()
     love.window.setMode(width, height)
     
     birdY = 200
+    birdX = 120
     birdYSpeed = 0 -- setting this to a negitive will make the bird jump up for a second before falling back down
     jumpthru = 150
     pipeLength = 350
@@ -35,16 +36,27 @@ function love.update(dt)
         pipe2x = 1150
         pipeLength2 = math.random(100,650)
     end
+--Pipe1 hitbox top
+    if (birdX > pipe1x or birdX +30 > pipe1x) and birdX < (pipe1x + pipeWidth) and 
+    birdY <  pipeLength then
+        love.load()
+    end
+    --hitbox bottom
 
+    end
+--pipe2 Hitbox
+    if (birdX > pipe2x or birdX +30 > pipe2x) and birdX < (pipe2x + pipeWidth) and
+    birdY <  pipeLength2 then
+        love.load()
+    end
+    --hitbox bottom
+    
 end
 
 -- user input
 function love.keypressed(key)
     if key == "space" then 
         birdYSpeed = -300
-    end
-    if birdY < 0 then
-        birdYSpeed = 0
     end
 end
 
@@ -67,6 +79,6 @@ function love.draw()
     
     -- bird
     love.graphics.setColor(0.8,0.8,0.2,1)
-    love.graphics.rectangle("fill", 120, birdY, 30, 25)
+    love.graphics.rectangle("fill", birdX, birdY, 30, 25)
     
 end
