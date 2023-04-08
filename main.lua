@@ -43,7 +43,6 @@ function love.update(dt)
     end
     --hitbox bottom
 
-    end
 --pipe2 Hitbox
     if (birdX > pipe2x or birdX +30 > pipe2x) and birdX < (pipe2x + pipeWidth) and
     birdY <  pipeLength2 then
