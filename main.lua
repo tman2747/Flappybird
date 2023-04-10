@@ -23,7 +23,6 @@ end
 function love.update(dt)
     birdYSpeed = birdYSpeed + (550 * dt) -- dt make the game frame independant/ calucalting dt here independantly from bird y 
     birdY = birdY + ( birdYSpeed * dt)
-    --print(dt *500)
     pipe1x = pipe1x - (350 * dt)
     pipe2x = pipe2x - (350 * dt)
 
