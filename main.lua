@@ -7,7 +7,7 @@ function love.load()
     pipeWidth = 100
     love.window.setTitle("Flappy Guy")
     love.window.setMode(width, height)
-    
+        
     birdY = 200
     birdX = 120
     birdYSpeed = 0 -- setting this to a negitive will make the bird jump up for a second before falling back down
@@ -15,8 +15,8 @@ function love.load()
     pipeLength = 350
     pipeLength2 = 350
     pipeStartingX = (width - pipeWidth)
-
-
+    score = 0
+    nextpipe = 1
 
 end
 
@@ -42,6 +42,12 @@ function love.update(dt)
         love.load()
     end
     --hitbox bottom
+    if (birdX > pipe1x or birdX +30 > pipe1x) and
+    birdX + 30 > pipe1x and
+    birdX < pipe1x + pipeWidth and
+    (birdY > pipeLength + jumpthru or birdY + 25 > pipeLength + jumpthru) then
+        love.load()
+    end
 
 --pipe2 Hitbox
     if (birdX > pipe2x or birdX +30 > pipe2x) and birdX < (pipe2x + pipeWidth) and
@@ -49,6 +55,28 @@ function love.update(dt)
         love.load()
     end
     --hitbox bottom
+    if (birdX > pipe2x or birdX +30 > pipe2x) and
+    birdX + 30 > pipe2x and
+    birdX < pipe2x + pipeWidth and
+    (birdY > pipeLength2 + jumpthru or birdY + 25 > pipeLength2 + jumpthru) then
+        love.load()
+    end
+
+    if birdX > pipe1x + pipeWidth and nextpipe == 1 then
+        nextpipe = 2
+        score = score + 1
+        print(
+            "score"
+        )
+    end
+    
+    if birdX > pipe2x + pipeWidth and nextpipe == 2 then
+        nextpipe = 1
+        score = score + 1
+        print(
+            "score"
+        )
+    end
     
 end
 
@@ -75,9 +103,12 @@ function love.draw()
     --pipe2
     love.graphics.rectangle("fill", pipe2x, 0, pipeWidth, pipeLength2)
     love.graphics.rectangle("fill",pipe2x, pipeLength2 + jumpthru, pipeWidth, height - pipeLength2 - jumpthru)
-    
+      
     -- bird
     love.graphics.setColor(0.8,0.8,0.2,1)
     love.graphics.rectangle("fill", birdX, birdY, 30, 25)
+
+    -- Score
+    love.graphics.print(score,100,100)
     
 end
