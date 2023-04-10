@@ -60,7 +60,7 @@ function love.update(dt)
     (birdY > pipeLength2 + jumpthru or birdY + 25 > pipeLength2 + jumpthru) then
         love.load()
     end
-
+-- adding to score
     if birdX > pipe1x + pipeWidth and nextpipe == 1 then
         nextpipe = 2
         score = score + 1
