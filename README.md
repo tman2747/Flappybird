@@ -5,7 +5,7 @@ This is a simple game made in Love2D, where you control a bird and try to fly th
 ## Getting Started
 To run the game, you need to have Love2D installed on your computer. You can download the latest version of Love2D from the official website (https://love2d.org/).
 
-After installing Love2D, you can simply run the game by zipping the main.lua file and dragging the zip onto the Love2D icon.
+After installing Love2D, you can simply run the game by zipping the main.lua file and dragging the zip onto the Love2D icon or downloading the release just running flappybird.love.
 
 ## Game Controls
 The player controls the bird by pressing the spacebar to make it jump.
